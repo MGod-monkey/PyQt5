@@ -28,6 +28,9 @@ class useLineEdit(QDialog):
         Lineedit2 = QLineEdit()
         Lineedit1.setEchoMode(QLineEdit.Normal)
         Lineedit2.setEchoMode(QLineEdit.PasswordEchoOnEdit)
+        # 设置编辑框默认显示消息
+        Lineedit1.setPlaceholderText('请输入账号')
+        Lineedit2.setPlaceholderText('请输入密码')
         # 添加网格布局(QGridLayout.addWidget(控件名,rowIndex,columnIndex,row,column)->行位置,列位置,所占的行空间,所占的列空间)
         GridLayout = QGridLayout()
         GridLayout.addWidget(Label1,0,0,1,1)
