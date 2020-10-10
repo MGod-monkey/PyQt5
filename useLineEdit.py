@@ -1,6 +1,7 @@
 from PyQt5.QtWidgets import QToolTip,QApplication,QWidget,QLineEdit,QDesktopWidget,QDialog,QGridLayout,QPushButton,QLabel
+from PyQt5.QtGui import QIntValidator,QDoubleValidator,QRegExpValidator
 import sys
-from PyQt5.QtCore import Qt
+from PyQt5.QtCore import Qt,QRegExp
 
 class useLineEdit(QDialog):
     def __init__(self):
@@ -31,6 +32,18 @@ class useLineEdit(QDialog):
         # 设置编辑框默认显示消息
         Lineedit1.setPlaceholderText('请输入账号')
         Lineedit2.setPlaceholderText('请输入密码')
+        # 创建校验器
+        intvalidator = QIntValidator()
+        intvalidator.setRange(1,9999999999) # 设置一个10位数整形校验器
+        doublevalidator =QDoubleValidator()
+        doublevalidator.setRange(-360,360)
+        doublevalidator.setNotation(2)  # 设置一个[-360,360]的两位数浮点型校验器
+        reg = QRegExp('[a-zA-Z0-9]+$')
+        regexpvalidation = QRegExpValidator()
+        regexpvalidation.setRegExp(reg) # 设置一个字符和数字的校验器
+        # 将校验器与编辑框绑定
+        # Lineedit1.setValidator(intvalidator)
+        Lineedit2.setValidator(regexpvalidation)
         # 添加网格布局(QGridLayout.addWidget(控件名,rowIndex,columnIndex,row,column)->行位置,列位置,所占的行空间,所占的列空间)
         GridLayout = QGridLayout()
         GridLayout.addWidget(Label1,0,0,1,1)
