@@ -1,5 +1,5 @@
 from PyQt5.QtWidgets import QWidget,QApplication,QMainWindow,QLabel,QVBoxLayout,QDesktopWidget
-from PyQt5.QtGui import QIcon,QFont,QPixmap
+from PyQt5.QtGui import QIcon,QFont,QPixmap,QPalette
 from PyQt5.QtCore import Qt # 一些常用的变量
 import sys
 
@@ -28,8 +28,11 @@ class label_use(QMainWindow):
         label4 = QLabel(self)
 
         label1.setToolTip('这是一个普通标签')
-        label1.setText('这是一个带色的标签')
-        label1.setFont(QFont(u'黑体',14))
+        label1.setText('<font color=blue>这是一个带色的标签</font>')
+        label1.setFont(QFont(u'宋体',14))
+        # 调色板
+        # palette = QPalette()
+        # label1.setPalette(palette)
         label1.setAlignment(Qt.AlignCenter)   #设置标签的对齐方式
 
 
