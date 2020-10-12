@@ -1,4 +1,6 @@
 from PyQt5.QtWidgets import *
+from PyQt5.QtGui import QIcon
+from PyQt5.QtCore import Qt
 import sys
 
 class useTextEdit(QMainWindow):
@@ -6,13 +8,15 @@ class useTextEdit(QMainWindow):
         super(useTextEdit, self).__init__()
         self.initUI()
     def initUI(self):
-        self.resize(150,250)
+        self.resize(250,350)
+        # self.setWindowIcon(QIcon(r'image/w.ico'))
         # 屏幕居中
         screen = QDesktopWidget().geometry()
         win_size = self.geometry()
         self.move(int(screen.width()/2-win_size.width()/2),int(screen.height()/2-win_size.height()/2))
         # 添加组件
         self.TextEdit = QTextEdit()
+        # self.TextEdit.setAlignment(Qt.AlignHCenter)
         button1 = QPushButton('显示文本')
         button2 = QPushButton('获取文本')
         button3 = QPushButton('显示HTML')
@@ -37,12 +41,13 @@ class useTextEdit(QMainWindow):
     def gettext(self):
         print(self.TextEdit.toPlainText())
     def showhtml(self):
-        self.TextEdit.setHtml('<font color=blue>这是一个带色的文本显示框</font>')
+        self.TextEdit.setHtml('<font color=blue size=18>这是一个带色的文本显示框</font>')
     def gethtml(self):
         print(self.TextEdit.toHtml())
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)
+    app.setWindowIcon(QIcon('M:\Project File\PyQt5\image\微信.png'))
     window = useTextEdit()
     window.show()
     app.exec_()

@@ -34,7 +34,7 @@ class useLineEdit(QDialog):
         Lineedit2.setPlaceholderText('请输入密码')
         # 创建校验器
         intvalidator = QIntValidator()
-        intvalidator.setRange(1,9999999999) # 设置一个10位数整形校验器
+        intvalidator.setRange(1,999999) # 设置一个10位数整形校验器
         doublevalidator =QDoubleValidator()
         doublevalidator.setRange(-360,360)
         doublevalidator.setNotation(2)  # 设置一个[-360,360]的两位数浮点型校验器
