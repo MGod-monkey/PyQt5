@@ -46,7 +46,7 @@ class setFontsize(QWidget):
     def changefontsize(self,widget):
         self.size = widget.value()
         self.label.setFont(QFont('{}'.format(self.fontbox.currentText()),self.size))
-    def changefont(self, widget=None):
+    def changefont(self):
         self.label.setFont(QFont('{}'.format(self.fontbox.currentText()),self.size))
 if __name__ == '__main__':
     app = QApplication(sys.argv)
