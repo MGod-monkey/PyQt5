@@ -21,7 +21,7 @@ class useInoutDialog(QWidget):
         self.lineEdit1 = QLineEdit()
         self.lineEdit1.setPlaceholderText('请输入姓名')
         self.button1 = QPushButton('输入')
-        self.button1.clicked.connect(lambda :self.gettext(self.lineEdit1))
+        self.button1.clicked.connect(lambda :self.gettext(self.button1))
         # 性别选择
         self.label2 = QLabel('性别')
         self.combox1 = QComboBox()
@@ -60,7 +60,7 @@ class useInoutDialog(QWidget):
         self.textEdit.setAlignment(Qt.AlignLeft)
         self.setFont(QFont('宋体',12))
         self.button6 = QPushButton('输入内容')
-        self.button6.clicked.connect(lambda :self.gettext(self.textEdit))
+        self.button6.clicked.connect(lambda :self.gettext(self.button6))
 
         # 添加布局
         Glayout = QGridLayout()
@@ -88,10 +88,13 @@ class useInoutDialog(QWidget):
         # return:输入的文本，状态
         if widget == self.button1:
             text,ok = QInputDialog.getText(self,'姓名','请输入你的姓名')
+            if text and ok:
+                self.lineEdit1.setText(text)
         else:
-            text, ok = QInputDialog.getText(self, '宣言', '请输入你的宣言')
-        if text and ok:
-            widget.setText(text)
+            text, ok = QInputDialog.getText(self,'宣言', '请输入你的宣言')
+            if text and ok:
+                self.textEdit.setText(text)
+
     # 选择框
     def getitem(self):
         #def getItem(self, QWidget, p_str, p_str_1, Iterable, p_str=None, *args, **kwargs)

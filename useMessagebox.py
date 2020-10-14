@@ -52,7 +52,6 @@ class useMessagebox(QWidget):
         else:
             QMessageBox.question(self,'提问','这是一个提问对话框',QMessageBox.Ok)
 
-
 if __name__ == '__main__':
     app = QApplication(sys.argv)
     app.setWindowIcon(QIcon('M:\Project File\PyQt5\image\ios.ico'))
