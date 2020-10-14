@@ -1,5 +1,5 @@
 from PyQt5.QtWidgets import *
-from PyQt5.QtGui import QIcon,QFont
+from PyQt5.QtGui import QIcon,QFont,QFontInfo
 from PyQt5.QtCore import Qt
 import sys
 
@@ -33,6 +33,8 @@ class setFontsize(QWidget):
         self.fontbox.setCurrentText('黑体')
         self.fontbox.setToolTip('点我设置字体')
         self.fontbox.currentIndexChanged.connect(self.changefont)
+        self.button = QPushButton('点我设置字体')
+        self.button.clicked.connect(self.setFont)
         # 连接槽
         self.spinbox.valueChanged.connect(lambda :self.changefontsize(widget=self.spinbox))
         self.slider.valueChanged.connect(lambda :self.changefontsize(widget=self.slider))
@@ -41,13 +43,26 @@ class setFontsize(QWidget):
         Glayout.addWidget(self.spinbox,1,3,1,1)
         Glayout.addWidget(self.slider,1,0,1,3)
         Glayout.addWidget(self.fontbox,2,0,2,4)
+        Glayout.addWidget(self.button,3,0,1,4)
         self.setLayout(Glayout)
         self.size = 12
     def changefontsize(self,widget):
         self.size = widget.value()
-        self.label.setFont(QFont('{}'.format(self.fontbox.currentText()),self.size))
+        if widget == self.spinbox:
+            self.label.setFont(QFont('{}'.format(self.fontbox.currentText()),self.size))
+            self.slider.setValue(self.size)
+        else:
+            self.label.setFont(QFont('{}'.format(self.fontbox.currentText()),self.size))
+            self.spinbox.setValue(self.size)
     def changefont(self):
         self.label.setFont(QFont('{}'.format(self.fontbox.currentText()),self.size))
+    def setFont(self):
+        font,ok = QFontDialog.getFont()
+        if font and ok:
+            self.label.setFont(font)
+            self.fontbox.setCurrentText(str(self.label.fontInfo().family()))
+            self.spinbox.setValue(int(self.label.fontInfo().pointSize()))
+            self.slider.setValue(int(self.label.fontInfo().pointSize()))
 if __name__ == '__main__':
     app = QApplication(sys.argv)
     app.setWindowIcon(QIcon('M:\Project File\PyQt5\image\微信.png'))
