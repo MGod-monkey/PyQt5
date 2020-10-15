@@ -26,10 +26,6 @@ class setFontsize(QWidget):
         self.label = QLabel('你看我有啥变化')
         self.label.setAlignment(Qt.AlignCenter)
         self.label.setFont(QFont(self.font_text,self.size))
-        # back = QPalette()
-        # back.setColor(QPalette.Background, Qt.black)
-        # self.label.setBackgroundRole(QPalette.Background)
-        # self.label.setPalette(back)
         # 改变字体大小-计数器
         self.spinbox = QSpinBox()
         self.spinbox.setToolTip('计数器设置字体大小')
