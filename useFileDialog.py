@@ -10,7 +10,7 @@ class useFileDialog(QWidget):
         self.initUI()
     def initUI(self):
         # 窗口布局
-        self.setWindowTitle('改变字体样式')
+        self.setWindowTitle('文件对话框')
         self.resize(250,350)
         screen_size = QDesktopWidget().geometry()
         win_size = self.geometry()
