@@ -25,7 +25,11 @@ class setDateTime(QWidget):
         self.calendar.clicked.connect(lambda :self.changeDate(self.calendar))
         # 不同风格的日期时间设置
         # 默认时间
-        dateEidt = QDateTimeEdit()
+        dateEidt = QDateTimeEdit(QDateTime.currentDateTime())
+        # 设置日历为下拉设置
+        dateEidt.setCalendarPopup(True)
+        # 将dateEdit的日期设置关联self.calendar
+        dateEidt.setCalendarWidget(self.calendar)
         # 当前时间+日期
         self.dateEidt_now = QDateTimeEdit(QDateTime.currentDateTime())
         self.dateEidt_now.dateChanged.connect(lambda:self.changeDate(self.dateEidt_now))
