@@ -24,7 +24,7 @@ class ClipBoard(QMainWindow):
         self.imageCopyButton = QPushButton('复制')
         self.imagePasteButton = QPushButton('粘贴')
         self.imagelabel = QLabel()
-        self.imagelabel.setPixmap(QPixmap('./image/游戏.ico'))
+        self.imagelabel.setPixmap(QPixmap('../image/游戏.ico'))
         self.imagelabel.setAlignment(Qt.AlignCenter)
         self.textCopyButton.clicked.connect(self.copyText)
         self.textPasteButton.clicked.connect(self.pasteText)
@@ -75,7 +75,7 @@ class ClipBoard(QMainWindow):
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)
-    app.setWindowIcon(QIcon('.\image\ios.ico'))
+    app.setWindowIcon(QIcon('../image/ios.ico'))
     window = ClipBoard()
     window.show()
     app.exec_()

@@ -3,7 +3,7 @@ from PyQt5.QtGui import QIcon
 from PyQt5.QtCore import Qt
 import sys
 
-# 菜单栏设置案例
+# 工具栏设置案例
 
 class ToolBar(QMainWindow):
     def __init__(self):
@@ -17,7 +17,7 @@ class ToolBar(QMainWindow):
 
         # 添加一个工具栏
         self.tb1 = self.addToolBar('File')
-        play_action = QAction(QIcon('./image/播放.ico'),'播放',self)
+        play_action = QAction(QIcon('../image/播放.ico'), '播放', self)
         # 工具栏默认会将QAction的图标设为主显示，而将文本设为提示文本
         # 通过设置QToolBar.setToolButtonStytle()来控制工具栏显示方式
         # 显示方式: Qt.ToolButtonStyle
@@ -28,7 +28,7 @@ class ToolBar(QMainWindow):
         # ToolButtonFollowStyle = ...  # 默认显示
         self.tb1.addAction(play_action)
         play_action.triggered.connect(self.clicked)
-        stop_action = QAction(QIcon('./image/文本.ico'),'文本',self)
+        stop_action = QAction(QIcon('../image/文本.ico'), '文本', self)
         self.tb1.addAction(stop_action)
         button1 = QPushButton('默认形式')
         button1.clicked.connect(lambda:self.settoolbuttonStyle(Qt.ToolButtonIconOnly))

@@ -46,7 +46,7 @@ class useDialog(QMainWindow):
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)
-    app.setWindowIcon(QIcon('M:\Project File\PyQt5\image\ios.ico'))
+    app.setWindowIcon(QIcon('/image/ios.ico'))
     window = useDialog()
     window.show()
     app.exec_()

@@ -44,7 +44,7 @@ class useFileDialog(QWidget):
             self.label2.setText(fp.read())
 if __name__ == '__main__':
     app = QApplication(sys.argv)
-    app.setWindowIcon(QIcon('.\image\ios.ico'))
+    app.setWindowIcon(QIcon('../image/ios.ico'))
     window = useFileDialog()
     window.show()
     app.exec_()

@@ -91,7 +91,7 @@ class setDateTime(QWidget):
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)
-    app.setWindowIcon(QIcon('.\image\ios.ico'))
+    app.setWindowIcon(QIcon('../image/ios.ico'))
     window = setDateTime()
     window.show()
     app.exec_()

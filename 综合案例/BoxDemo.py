@@ -86,7 +86,7 @@ class usebox(QWidget):
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)
-    app.setWindowIcon(QIcon('M:\Project File\PyQt5\image\微信.png'))
+    app.setWindowIcon(QIcon('/image/微信.png'))
     window = usebox()
     window.show()
     app.exec_()

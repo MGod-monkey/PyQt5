@@ -115,7 +115,7 @@ class setFontsize(QWidget):
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)
-    app.setWindowIcon(QIcon('.\image\ios.ico'))
+    app.setWindowIcon(QIcon('../image/ios.ico'))
     window = setFontsize()
     window.show()
     app.exec_()
