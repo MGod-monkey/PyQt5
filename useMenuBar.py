@@ -1,6 +1,6 @@
 from PyQt5.QtWidgets import *
 from PyQt5.QtGui import QIcon
-from PyQt5.QtCore import Qt,QDate,QDateTime,QTime
+from PyQt5.QtCore import Qt
 import sys
 
 # 菜单栏设置案例
